@@ -7,23 +7,26 @@
 
 include 'FormBase.php';
 include 'FormBuilder.php';
-include 'FormPost.php';
-include 'FormPostEdit.php';
+include 'Form.php';
+include 'FormEdit.php';
 
-$form = new FormPostEdit();
-$form = $form->getFormPost();
-print($form);
+//$form = new Form();
+//$form = $form->getForm();
+//
+//print($form);
 
 
-/*
-$inst = new FormPostEdit();
-
-$inst->hydrate(array(
+$form = new FormEdit();
+$form->hydrate(array(
     'email' => 'myEmail@hotmail.com',
     'username' => 'apocalypse',
     'password' => 'VDG$DSFWEf'
 ));
 
-$form = $inst->getFormPost();
 
-print($form);*/
+$form = $form->getForm();
+
+print($form);
+/*
+
+*/

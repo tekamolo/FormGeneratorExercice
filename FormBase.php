@@ -26,7 +26,7 @@ class FormBase
         }
     }
 
-    public function getFormPost()
+    public function getForm()
     {
         $form = new FormBuilder();
         $form->setFormAttributes($this->formAttributes);
