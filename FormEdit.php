@@ -4,39 +4,20 @@
  * Created By Alfonso Fernandez-Ocampo
  */
 
-class FormEdit extends Form
+class FormEdit extends Form implements FormInstanceInterface
 {
     public function __construct()
     {
         parent::__construct();
-        $this->prepareFormPostEditBuilder();
-        $this->FormAttributesSetup();
+        parent::prepareFormBuilder();
+        $this->prepareFormBuilder();
+        $this->SetFormAttributes();
     }
 
-    public function prepareFormPostEditBuilder()
+    public function prepareFormBuilder(): void
     {
         $this->removeField('description');
     }
 
-    public function FormAttributesSetup()
-    {
-        $this->formAttributes=array(
-            'method' => 'post',
-            'action' => 'servicePostEdit.php',
-        );
-    }
+
 }
-
-
-/*
-$inst = new FormPostEdit();
-
-$inst->hydrate(array(
-    'email' => 'fernandez45@hotmail.com',
-    'username' => 'apocalypse',
-    'password' => 'VDG$DSFWEf'
-));
-
-$form = $inst->getFormPost();
-
-print($form);*/

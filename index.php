@@ -5,6 +5,7 @@
  * Created By Alfonso Fernandez-Ocampo
  */
 
+include 'FormInstanceInterface.php';
 include 'FormBase.php';
 include 'FormBuilder.php';
 include 'Form.php';
@@ -27,6 +28,3 @@ $form->hydrate(array(
 $form = $form->getForm();
 
 print($form);
-/*
-
-*/

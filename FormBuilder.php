@@ -9,7 +9,7 @@ class FormBuilder
     protected $attributes;
     protected $fields;
 
-    public function generate(){
+    public function generate(): string {
         $formAttributes='';
             foreach($this->attributes as $k => $a)
             {
@@ -19,7 +19,7 @@ class FormBuilder
 
         foreach($this->fields as $key => $field)
         {
-            extract($field);
+            extract($field); // this will trigger a problem on php storm
             if($type == "button")
             {
                 $output.="<button id='$name'>$label</button>";
@@ -40,12 +40,12 @@ class FormBuilder
         return $output;
     }
 
-    public function setFormAttributes(array $attributes)
+    public function setFormAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
     }
 
-    public function setFields(array $fields)
+    public function setFields(array $fields): void
     {
         $this->fields = $fields;
     }

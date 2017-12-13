@@ -4,19 +4,19 @@
  * Created By Alfonso Fernandez-Ocampo
  */
 
-class FormBase
+abstract class FormBase
 {
 
     protected $fields = array();
     protected $formAttributes = array();
 
-    public function addField($fieldid,$fieldType,$label=null,$value=null)
+    public function addField($fieldid,$fieldType,$label=null,$value=null): FormBase
     {
         $this->fields[]=array('name'=>$fieldid,'type'=>$fieldType,'label'=>$label,'value'=>$value);
-
+        return $this;
     }
 
-    public function removeField($fieldid)
+    public function removeField($fieldid): FormBase
     {
         foreach($this->fields as $key => $fields)
         {
@@ -24,19 +24,19 @@ class FormBase
                     unset($this->fields[$key]);
                 }
         }
+        return $this;
     }
 
-    public function getForm()
+    public function getForm(): string
     {
         $form = new FormBuilder();
         $form->setFormAttributes($this->formAttributes);
-
         $form->setFields($this->fields);
-        $formulaire = $form->generate();
-        return $formulaire;
+
+        return $form->generate();
     }
 
-    public function hydrate(array $data)
+    public function hydrate(array $data): void
     {
         foreach($data as $key => $d){
             foreach($this->fields as $key2 => $field)
@@ -47,5 +47,13 @@ class FormBase
                 }
             }
         }
+    }
+
+    public function setFormAttributes($method="post",$action="service.php"): void
+    {
+        $this->formAttributes=array(
+            'method' => $method,
+            'action' => $action,
+        );
     }
 }

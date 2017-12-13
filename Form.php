@@ -4,30 +4,21 @@
  * Created By Alfonso Fernandez-Ocampo
  */
 
-class Form extends FormBase
+class Form extends FormBase implements FormInstanceInterface
 {
     public function __construct()
     {
         $this->prepareFormBuilder();
-        $this->FormAttributesSetup();
+        $this->setFormAttributes();
     }
 
-    public function prepareFormBuilder()
+    public function prepareFormBuilder(): void
     {
-        $this->addField('email','email','Email');
-        $this->addField('username','text','Username');
-        $this->addField('password','password','Password');
-        $this->addField('description','textarea','Description');
-        $this->addField('submit','button','Submit');
+        $this->addField('email','email','Email')
+            ->addField('username','text','Username')
+            ->addField('password','password','Password')
+            ->addField('description','textarea','Description')
+            ->addField('submit','button','Submit');
     }
-
-    public function FormAttributesSetup()
-    {
-        $this->formAttributes=array(
-            'method' => 'post',
-            'action' => 'service.php',
-        );
-    }
-
 }
 
