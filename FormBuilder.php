@@ -19,20 +19,20 @@ class FormBuilder
 
         foreach($this->fields as $key => $field)
         {
-            extract($field); // this will trigger a problem on php storm
+            extract($field);
             if($type == "button")
             {
-                $output.="<button id='$name'>$label</button>";
+                $output.="<button id='$name' class='$class'>$label</button>";
             }elseif($type=="textarea"){
                 if($label !== NULL){
-                    $output.= "<label>$label</label><br>";
+                    $output.= "<label class='$classLabel'>$label</label><br>";
                 }
-                $output.="<textarea name='$name' id='$name'>$value</textarea><br>";
+                $output.="<textarea name='$name' id='$name' class='$class'>$value</textarea><br>";
             }else{
                 if($label !== NULL){
-                    $output.= "<label>$label</label><br>";
+                    $output.= "<label class='$classLabel'>$label</label><br>";
                 }
-                $output.="<input type='$type' name='$name' id='$name' value='$value' /><br>";
+                $output.="<input type='$type' name='$name' id='$name' value='$value' class='$class' /><br>";
             }
         }
 

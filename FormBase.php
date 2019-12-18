@@ -10,9 +10,9 @@ abstract class FormBase
     protected $fields = array();
     protected $formAttributes = array();
 
-    public function addField($fieldid,$fieldType,$label=null,$value=null): FormBase
+    public function addField(array $fieldDetails): FormBase
     {
-        $this->fields[]=array('name'=>$fieldid,'type'=>$fieldType,'label'=>$label,'value'=>$value);
+        $this->fields[]=$fieldDetails;
         return $this;
     }
 
@@ -49,7 +49,7 @@ abstract class FormBase
         }
     }
 
-    public function setFormAttributes($method="post",$action="service.php"): void
+    public function setFormAttributes($action, $method="post"): void
     {
         $this->formAttributes=array(
             'method' => $method,

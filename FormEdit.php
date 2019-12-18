@@ -6,12 +6,10 @@
 
 class FormEdit extends Form implements FormInstanceInterface
 {
-    public function __construct()
+    public function __construct($service)
     {
-        parent::__construct();
+        parent::__construct($service);
         parent::prepareFormBuilder();
-        $this->prepareFormBuilder();
-        $this->SetFormAttributes();
     }
 
     public function prepareFormBuilder(): void
