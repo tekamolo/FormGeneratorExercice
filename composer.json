@@ -1,0 +1,22 @@
+{
+    "name": "afernandez/form-generator-exercice",
+    "description": "form generator package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alfonso Fernandez Ocampo",
+            "email": "fernandez1980@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "symfony/var-dumper": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "FormGenerator\\": "src/",
+            "Test\\": "test/"
+        }
+    }
+}

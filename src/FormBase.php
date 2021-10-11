@@ -1,28 +1,36 @@
 <?php
+declare(strict_types=1);
 
-/**
- * Created By Alfonso Fernandez-Ocampo
- */
+namespace FormGenerator;
 
 abstract class FormBase
 {
 
-    protected $fields = array();
-    protected $formAttributes = array();
+    protected array $fields = array();
+    protected array $formAttributes = array();
 
     public function addField(array $fieldDetails): FormBase
     {
-        $this->fields[]=$fieldDetails;
+        $this->fields[] = $fieldDetails;
         return $this;
     }
 
-    public function removeField($fieldid): FormBase
+    public function getFields(): array
     {
-        foreach($this->fields as $key => $fields)
-        {
-                if($fields['name']==$fieldid){
-                    unset($this->fields[$key]);
-                }
+        return $this->fields;
+    }
+
+    public function getFormAttributes(): array
+    {
+        return $this->formAttributes;
+    }
+
+    public function removeField(string $fieldId): FormBase
+    {
+        foreach ($this->fields as $key => $fields) {
+            if ($fields['name'] == $fieldId) {
+                unset($this->fields[$key]);
+            }
         }
         return $this;
     }

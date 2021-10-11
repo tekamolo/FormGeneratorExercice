@@ -1,18 +1,17 @@
 <?php
+declare(strict_types=1);
 
-/**
- * Created By Alfonso Fernandez-Ocampo
- */
+namespace FormGenerator;
 
 class FormBuilder
 {
     protected $attributes;
     protected $fields;
 
-    public function generate(): string {
-        $formAttributes='';
-            foreach($this->attributes as $k => $a)
-            {
+    public function generate(): string
+    {
+        $formAttributes = '';
+        foreach ($this->attributes as $k => $a) {
                 $formAttributes .= "$k='$a' ";
             }
         $output = "<form $formAttributes >";

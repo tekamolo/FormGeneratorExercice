@@ -1,19 +1,19 @@
 <?php
+declare(strict_types=1);
 
-/**
- * Created By Alfonso Fernandez-Ocampo
- */
+namespace FormGenerator;
 
-class Form extends FormBase implements FormInstanceInterface
+class FormSignin extends FormBase implements FormInstanceInterface
 {
-    public function __construct($service)
+    public function __construct(string $service)
     {
-        $this->prepareFormBuilder();
+        self::prepareFormBuilder();
         $this->setFormAttributes($service);
     }
 
     public function prepareFormBuilder(): void
-    {   $parameters = new ParametersEnvelop();
+    {
+        $parameters = new ParametersEnvelop();
         $this->addField($parameters->setName("email")->setType("email")->setLabel("Email")->getParameters())
             ->addField($parameters->clean()->setName("username")->setType("text")->getParameters())
             ->addField($parameters->clean()->setName("password")->setType("password")->setLabel("Password")->getParameters())

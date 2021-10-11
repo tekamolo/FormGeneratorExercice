@@ -1,14 +1,16 @@
 <?php
+declare(strict_types=1);
 
+namespace FormGenerator;
 
 class ParametersEnvelop
 {
     private $parameters = array(
-        'name'=>"",
-        'type'=>"",
-        'label'=>"",
-        'value'=>"",
-        'class'=>"",
+        'name' => "",
+        'type' => "",
+        'label' => "",
+        'value' => "",
+        'class' => "",
         'classLabel' => ""
     );
 

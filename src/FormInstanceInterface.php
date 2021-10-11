@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ferna
- * Date: 13/12/2017
- * Time: 01:49
- */
+declare(strict_types=1);
+
+namespace FormGenerator;
 
 interface FormInstanceInterface
 {
